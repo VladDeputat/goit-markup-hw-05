@@ -13,6 +13,7 @@ adress and email footer #FFFFFF, 60 % */
   --hero-and-footer-background-color: #2f303a;
   --team-section-background-color: #f5f4fa;
   --accent-color: #2196f3;
+  --hover-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -49,11 +50,11 @@ body {
   padding-bottom: 94px;
 }
 
-section,
+/* section,
 container,
 div {
   outline: solid 1px tomato;
-}
+} */
 
 /*---- removing decor ---*/
 li {
@@ -116,7 +117,7 @@ button {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--hover-function);
 }
 
 .header-logo,
@@ -175,7 +176,7 @@ button {
 
 .header .icon {
   margin-right: 10px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--hover-function);
 }
 
 .header-contact:hover,
@@ -231,7 +232,7 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 10px 32px;
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 250ms var(--hover-function);
 }
 
 .make-order-button:hover,
@@ -250,7 +251,7 @@ button {
 
   border-radius: 4px;
   padding: 6px 22px 6px 22px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .portfolio-button:hover,
@@ -433,7 +434,7 @@ button {
   width: 44px;
   border-radius: 50%;
   fill: #afb1b8;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .link-list .link-icon:hover,
@@ -456,7 +457,7 @@ button {
 
 .client .icon {
   fill: #afb1b8;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .client-link {
@@ -467,7 +468,7 @@ button {
   background-color: #ffffff;
   border: 1px solid #afb1b8;
   border-radius: 4px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .client-link:hover .icon,
@@ -503,23 +504,49 @@ button {
   margin-top: -30px;
 }
 
-.project-list .item {
+.project-list .card {
   display: block;
   margin-left: 30px;
   margin-top: 30px;
 
   flex-basis: calc(100% / 3 - 30px);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
-.project-list .item-name {
+.project-list .card-name {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
 }
 
-.project-list .item:hover,
-.project-list .item:focus {
+.project-list .card:hover,
+.project-list .card:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-description {
+  background-color: rgba(33, 150, 243, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 63px 24px;
+  transition: all 250ms var(--hover-function);
+
+  font-size: 18px;
+  line-height: 1.56;
+  color: #ffffff;
+
+  transform: translatey(100%);
+}
+
+.card:hover .thumb-description,
+.card:focus .thumb-description {
+  transform: translate(0%);
 }
 
 /* ---footer--- */
@@ -554,7 +581,7 @@ button {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .footer-contact {
@@ -565,7 +592,7 @@ button {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .footer-contact:hover,
@@ -602,7 +629,7 @@ button {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   fill: #ffffff;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms var(--hover-function);
 }
 
 .footer-links-list-item + .footer-links-list-item {
@@ -623,7 +650,7 @@ button {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: all 1000ms linear;
+  transition: all 500ms var(--hover-function);
 }
 
 .modal {
