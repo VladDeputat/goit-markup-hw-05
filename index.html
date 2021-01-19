@@ -19,11 +19,11 @@
     <!-- header container -->
     <header class="header">
       <div class="container">
-        <a class="header-logo" href="./index.html"><span>Web</span>Studio </a>
+        <a class="header-logo" href="./index.html"><span>Web</span>Studio</a>
         <nav class="nav">
           <ul class="nav-list">
             <li class="item">
-              <a class="nav-link-current" href="./index.html">Студия</a>
+              <a class="nav-link current" href="./index.html">Студия</a>
             </li>
             <li class="item">
               <a class="nav-link" href="./portfolio.html">Портфолио</a>
@@ -61,7 +61,7 @@
         <div class="container">
           <div class="hero-content">
             <h1 class="hero-heading">Эффективные решения для вашего бизнеса</h1>
-            <button class="make-order-button">Заказать услугу</button>
+            <button class="make-order-button" data-modal-open>Заказать услугу</button>
           </div>
         </div>
       </section>
@@ -102,12 +102,21 @@
           <ul class="businesses-list">
             <li class="item">
               <img width="370" height="294" src="./img/img1.jpg" alt="desk" />
+              <div class="item-label">
+                <h3 class="label-heading">Десктопные приложения</h3>
+              </div>
             </li>
             <li class="item">
               <img width="370" height="294" src="./img/img2.jpg" alt="phone" />
+              <div class="item-label">
+                <h3 class="label-heading">Мобильные приложения</h3>
+              </div>
             </li>
             <li class="item">
               <img width="370" height="294" src="./img/img3.jpg" alt="tablet" />
+              <div class="item-label">
+                <h3 class="label-heading">Дизайнерские решения</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -380,5 +389,18 @@
         </div>
       </section>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="close-modal" data-modal-close type="button">
+          X
+          <!-- <svg>
+            <use href="./img/close.svg"></use>
+          </svg> -->
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>

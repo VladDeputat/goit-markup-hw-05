@@ -49,11 +49,11 @@ body {
   padding-bottom: 94px;
 }
 
-/* section,
+section,
 container,
 div {
   outline: solid 1px tomato;
-} */
+}
 
 /*---- removing decor ---*/
 li {
@@ -116,7 +116,9 @@ button {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .header-logo,
 .footer-logo {
   color: #000000;
@@ -145,12 +147,20 @@ button {
   letter-spacing: 0.02em;
 }
 
-.nav-link-current {
+.nav-list .current {
   color: var(--accent-color);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
+  display: block;
+  padding-bottom: 0;
+}
+
+.nav-list .current::after {
+  margin-top: 28px;
+  content: '';
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  align-items: bottom;
 }
 
 .header-contact {
@@ -165,6 +175,7 @@ button {
 
 .header .icon {
   margin-right: 10px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact:hover,
@@ -220,6 +231,7 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 10px 32px;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .make-order-button:hover,
@@ -238,6 +250,7 @@ button {
 
   border-radius: 4px;
   padding: 6px 22px 6px 22px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-button:hover,
@@ -336,12 +349,30 @@ button {
 .businesses-list .item {
   margin-left: 30px;
   flex-basis: calc(100% / 3 - 30px);
+  position: relative;
 }
 
 .businesses-list {
   margin-left: -30px;
 }
 
+.item-label {
+  background-image: linear-gradient(rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8));
+  padding-top: 27px;
+  padding-bottom: 27px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.label-heading {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
 /* ------team-section-------- */
 
 .team {
@@ -402,6 +433,7 @@ button {
   width: 44px;
   border-radius: 50%;
   fill: #afb1b8;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-list .link-icon:hover,
@@ -424,6 +456,7 @@ button {
 
 .client .icon {
   fill: #afb1b8;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link {
@@ -434,6 +467,7 @@ button {
   background-color: #ffffff;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover .icon,
@@ -475,6 +509,7 @@ button {
   margin-top: 30px;
 
   flex-basis: calc(100% / 3 - 30px);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-list .item-name {
@@ -519,6 +554,7 @@ button {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contact {
@@ -529,6 +565,7 @@ button {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contact:hover,
@@ -565,6 +602,7 @@ button {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   fill: #ffffff;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-links-list-item + .footer-links-list-item {
@@ -574,4 +612,46 @@ button {
 .footer-links-icon:hover,
 .footer-links-icon:focus {
   background-color: var(--accent-color);
+}
+
+/* ------------modal window -----------*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 1000ms linear;
+}
+
+.modal {
+  width: 528px;
+  height: 581px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-modal {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
